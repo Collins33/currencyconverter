@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -19,5 +20,12 @@ public class MainActivity extends AppCompatActivity {
         EditText dollarview=(EditText) findViewById(R.id.editText);
         //log input to logcat
         Log.i("dollar",dollarview.getText().toString());
+        //convert input to double
+        Double dollaramount=Double.parseDouble(dollarview.getText().toString());
+        //convert from dollar to ksh
+        Double poundAmount= dollaramount * 100;
+        Toast myToast= Toast.makeText(this,"ksh"+poundAmount.toString(),Toast.LENGTH_LONG);
+        myToast.show();
+
     }
 }
